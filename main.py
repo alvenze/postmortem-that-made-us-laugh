@@ -49,6 +49,10 @@ def main():
     with open("/output/entry.txt", encoding="utf-8") as f:
         if f.read() != ENTRY:
             raise ValueError("written entry.txt does not match the gated entry")
+    # Diagnostic: report the counts the gate and the Size column use.
+    print(f"wrote /output/entry.txt: {len(ENTRY)} characters, "
+          f"{len(ENTRY.encode('utf-8'))} bytes, "
+          f"{ENTRY.count('. ') + 1} sentences")
 
 
 if __name__ == "__main__":
